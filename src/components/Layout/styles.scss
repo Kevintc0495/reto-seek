@@ -1,0 +1,10 @@
+.c-layout {
+
+  &__appbar {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    column-gap: 16px;
+    justify-content: end;
+  }
+}

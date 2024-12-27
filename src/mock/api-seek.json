@@ -1,0 +1,328 @@
+{
+  "uuid": "01f50432-36dd-46c7-93b0-54d18222af79",
+  "lastMigration": 33,
+  "name": "api-seek",
+  "endpointPrefix": "api",
+  "latency": 0,
+  "port": 5000,
+  "hostname": "",
+  "folders": [
+    {
+      "uuid": "c492adac-10be-44d9-87c4-4447b6520766",
+      "name": "Task",
+      "children": [
+        {
+          "type": "route",
+          "uuid": "17b96538-ebd2-4e4c-b6ee-e73703de2f3d"
+        },
+        {
+          "type": "route",
+          "uuid": "87125f1d-24e1-40b5-8718-80e8dc2452d1"
+        },
+        {
+          "type": "route",
+          "uuid": "f3476c87-bfcd-415d-b1d8-9a0b13d4beac"
+        },
+        {
+          "type": "route",
+          "uuid": "148db472-2e08-48e7-9dd3-df76c478113c"
+        },
+        {
+          "type": "route",
+          "uuid": "13dea5fe-fa09-4abd-8fe7-d2f7c98d6c8f"
+        }
+      ]
+    },
+    {
+      "uuid": "22b414ac-5c74-401f-8fef-697b1c2f4163",
+      "name": "Login",
+      "children": [
+        {
+          "type": "route",
+          "uuid": "39db12ef-c7f5-4dde-a683-ce39298107b6"
+        }
+      ]
+    }
+  ],
+  "routes": [
+    {
+      "uuid": "39db12ef-c7f5-4dde-a683-ce39298107b6",
+      "type": "http",
+      "documentation": "OK",
+      "method": "post",
+      "endpoint": "login",
+      "responses": [
+        {
+          "uuid": "afff322e-78a0-4eb3-bb03-8713c6b01127",
+          "body": "{ \n  \"message\": \"Acceso autorizado\", \n  \"data\": {\n    \"email\": \"ktorrescolan@gmail.com\",\n    \"id\": 1,\n    \"lastName\": \"Torres Colan\",\n    \"name\": \"Kevin Carlos\",\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibGFzdE5hbWUiOiJUb3JyZXMgQ29sYW4iLCJuYW1lIjoiS2V2aW4gQ2FybG9zIiwiaXNBZG1pbiI6dHJ1ZX0.F8m6_CiGFClsJLjCIeW__NvpIN5sVyPM08LiPjHXVcs\"\n  }, \n  \"status\": 200 \n}",
+          "latency": 2500,
+          "statusCode": 200,
+          "label": "Admin",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        },
+        {
+          "uuid": "ce7cb922-b821-4eb1-ac18-7e2b8ae80894",
+          "body": "{ \n  \"message\": \"Acceso autorizado\", \n  \"data\": {\n    \"email\": \"ktorrescolan@gmail.com\",\n    \"id\": 1,\n    \"lastName\": \"Torres Colan\",\n    \"name\": \"Kevin Carlos\",\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibGFzdE5hbWUiOiJUb3JyZXMgQ29sYW4iLCJuYW1lIjoiS2V2aW4gQ2FybG9zIiwiaXNBZG1pbiI6ZmFsc2V9.8kVmy3Ja0V9rOU6a6Y91zv8rYg80Q8i9vu7kIVukkkY\"\n  }, \n  \"status\": 200 \n}",
+          "latency": 2500,
+          "statusCode": 200,
+          "label": "no Admin",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
+        },
+        {
+          "uuid": "abd67908-58a8-4625-a799-84eb8f35f143",
+          "body": "{ \n  \"message\": \"Usuario o contraseña incorrecta\", \n  \"status\": 401 \n}",
+          "latency": 1500,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "17b96538-ebd2-4e4c-b6ee-e73703de2f3d",
+      "type": "http",
+      "documentation": "List all",
+      "method": "get",
+      "endpoint": "task",
+      "responses": [
+        {
+          "uuid": "75b5807a-3243-416e-b66a-05e39b604306",
+          "body": "{ \n  \"message\": \"Listar tareas\", \n  \"data\": {\n    \"data\": [\n      { \n        \"id\": 1,\n        \"title\": \"Tarea 1\", \n        \"description\": \"Realizar acción 1\",\n        \"state\": \"Por hacer\" \n      },\n      { \n        \"id\": 2,\n        \"title\": \"Tarea 2\", \n        \"description\": \"Realizar acción 2\",\n        \"state\": \"En progreso\" \n      },\n      { \n        \"id\": 3,\n        \"title\": \"Tarea 3\", \n        \"description\": \"Realizar acción 3\",\n        \"state\": \"Completada\" \n      }\n    ], \n    \"count\": 2,\n    \"pageSize\": 10,\n    \"page\": 1\n  },\n  \"status\": 200 \n}",
+          "latency": 1500,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "87125f1d-24e1-40b5-8718-80e8dc2452d1",
+      "type": "http",
+      "documentation": "getById",
+      "method": "get",
+      "endpoint": "task/:id",
+      "responses": [
+        {
+          "uuid": "5b6414cf-2ade-4f25-9313-09eb8ae84e4d",
+          "body": "{ \n  \"message\": \"Tarea obtenida\", \n  \"data\": {\n    \"id\": 1,\n    \"title\": \"Tarea 1\", \n    \"description\": \"Realizar acción 1\",\n    \"state\": \"1\" \n  },\n  \"status\": 200 \n}",
+          "latency": 1500,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "f3476c87-bfcd-415d-b1d8-9a0b13d4beac",
+      "type": "http",
+      "documentation": "Crear",
+      "method": "post",
+      "endpoint": "task",
+      "responses": [
+        {
+          "uuid": "7795ae32-3d4b-4f57-b379-1b9088312123",
+          "body": "{ \n  \"message\": \"Tarea creado\", \n  \"data\": {\n    \"id\": 1,\n    \"name\": \"Administrador\", \n    \"state\": \"1\" \n  },\n  \"status\": 200 \n}",
+          "latency": 1500,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "148db472-2e08-48e7-9dd3-df76c478113c",
+      "type": "http",
+      "documentation": "Update",
+      "method": "put",
+      "endpoint": "task/1",
+      "responses": [
+        {
+          "uuid": "eb1f3ff9-1bde-46e2-9d19-f5e3f6cfaec4",
+          "body": "{ \n  \"message\": \"Tarea actualizado\", \n  \"data\": {\n    \"id\": 1,\n    \"name\": \"Administrador\", \n    \"state\": \"1\" \n  },\n  \"status\": 200 \n}",
+          "latency": 1500,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "13dea5fe-fa09-4abd-8fe7-d2f7c98d6c8f",
+      "type": "http",
+      "documentation": "Delete",
+      "method": "delete",
+      "endpoint": "task/1",
+      "responses": [
+        {
+          "uuid": "b91a63eb-da05-43d5-a930-a5d9d1524ed5",
+          "body": "{ \n  \"message\": \"Tarea eliminada\", \n  \"data\": {\n    \"id\": 1,\n    \"name\": \"Administrador\"\n  },\n  \"status\": 200 \n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    }
+  ],
+  "rootChildren": [
+    {
+      "type": "folder",
+      "uuid": "22b414ac-5c74-401f-8fef-697b1c2f4163"
+    },
+    {
+      "type": "folder",
+      "uuid": "c492adac-10be-44d9-87c4-4447b6520766"
+    }
+  ],
+  "proxyMode": false,
+  "proxyHost": "",
+  "proxyRemovePrefix": false,
+  "tlsOptions": {
+    "enabled": false,
+    "type": "CERT",
+    "pfxPath": "",
+    "certPath": "",
+    "keyPath": "",
+    "caPath": "",
+    "passphrase": ""
+  },
+  "cors": true,
+  "headers": [
+    {
+      "key": "Content-Type",
+      "value": "application/json"
+    },
+    {
+      "key": "Access-Control-Allow-Origin",
+      "value": "*"
+    },
+    {
+      "key": "Access-Control-Allow-Methods",
+      "value": "GET,POST,PUT,PATCH,DELETE,HEAD,OPTIONS"
+    },
+    {
+      "key": "Access-Control-Allow-Headers",
+      "value": "Content-Type, Origin, Accept, Authorization, Content-Length, X-Requested-With"
+    }
+  ],
+  "proxyReqHeaders": [
+    {
+      "key": "",
+      "value": ""
+    }
+  ],
+  "proxyResHeaders": [
+    {
+      "key": "",
+      "value": ""
+    }
+  ],
+  "data": [],
+  "callbacks": []
+}

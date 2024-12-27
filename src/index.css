@@ -1,0 +1,13 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+.header-table {
+  background-color: #1977d3;
+}
+
+.header-table th {
+  color: #ffffff;
+}

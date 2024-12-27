@@ -1,0 +1,1 @@
+export { default as TaskCreateUpdatePage } from './page/TaskCreateUpdatePage';
